@@ -1,0 +1,43 @@
+----------------------------------JAVA-----------------------------------
+Siempre situado en el directorio src, tanto para Windows como para Linux, y habiendo ejecutado FileGenerator(Vectores):
+	Compilar:
+	
+		javac org/apache/commons/cli/*.java algorithmjava/*.java
+
+	Correr(algorithmjava/AlgorithmJava o algorithmjava.AlgorithmJava):
+	
+		java algorithmjava/AlgorithmJava -f ../../Vectores -dt
+
+	Empaquetar JAR (habiendo compilado previamente):
+		
+		jar -cfe output.jar algorithmjava.AlgorithmJava algorithmjava/*.class org/apache/commons/cli/*.class
+
+	Ejcutar JAR:
+
+		java -jar output.jar -f ../../Vectores [args]
+
+
+--------------------------------------------C++--------------------------------------------
+Siempre situado en el directorio principal del proyecto, tanto para Windows como para Linux:
+Según si estamos en Windows o Linux, se crea un ejecutable característico. Habiendo ejecutado FileGenerator(Vectores):
+	Compilar(Donde el primer argumento es el main, output es el ejecutable salida):
+		
+		g++ -o output AlgorithmCpp.cpp AddPoly.cpp ParserArgs.cpp ReadFile.cpp SolveEquation.cpp
+
+	Correr:
+
+		Windows->output.exe -f ../Vectores [args]
+		Linux->./output.out -f ../Vectores [args]
+
+
+---------------------------------------PYTHON----------------------------------------------
+Siempre situado en el directorio donde está el ejecutable *.py. Habiendo ejecutado FileGenerator(Vectores):
+	Correr:
+		
+		python AlgorithmPython.py -f ../../Vectores [args]
+
+------------------------------------BATCH---------------------------------------------------
+Se incluye un ejecutable .bat para automatizar este cálculo, cuya salida de tiempos será guardado en dos ficheros, según qué 
+algoritmo se use. El .bat creará una carpeta en la raíz llamada "Ejecutables" donde se almacenará, además de los ejecutables de
+C++ y JAVA, los dos ficheros salida con los tiempos de cada algoritmo, según sea Gauss-Jordan Elimination o Suma de Vectores.
+Si se desea cambiar el número de vectores creados en cada iteración del .bat, editarlo y cambiar los valores del bucle "for".
